@@ -2,10 +2,10 @@
 
 ## 1. Estado e tradução visual
 
-- [ ] 1.1 Criar `src/app/jogo/rotulos.ts` com nomes de embarcações, resultados, orientações e o mapa de `CodigoErro` para mensagens em português; verificar com teste unitário que todos os códigos do domínio têm mensagem.
-- [ ] 1.2 Criar `src/app/jogo/visual.ts` convertendo `Lado` e `Ataque[]` em `VisualCelula[]`, incluindo montagem, tabuleiro próprio, tabuleiro adversário oculto e detecção de embarcação destruída; verificar com `visual.spec.ts` que posições inimigas não atacadas permanecem `livre`.
-- [ ] 1.3 Criar `PartidaStore` com signals para estado, início da apresentação e mensagem, e métodos `iniciarJogo`, `posicionar`, `remover`, `iniciarBatalha`, `atacar`, `atacarComputador` e `reiniciar`; verificar com `partida-store.spec.ts` as transições e mensagens de erro.
-- [ ] 1.4 Cobrir no store o início bloqueado por frota incompleta, o ataque fora do turno, o ataque do computador e o reinício com frota vazia; verificar que `npx vitest run src/app/jogo` passa.
+- [x] 1.1 Criar `src/app/jogo/rotulos.ts` com nomes de embarcações, resultados, orientações e o mapa de `CodigoErro` para mensagens em português; verificar com teste unitário que todos os códigos do domínio têm mensagem.
+- [x] 1.2 Criar `src/app/jogo/visual.ts` convertendo `Lado` e `Ataque[]` em `VisualCelula[]`, incluindo montagem, tabuleiro próprio, tabuleiro adversário oculto e detecção de embarcação destruída; verificar com `visual.spec.ts` que posições inimigas não atacadas permanecem `livre`.
+- [x] 1.3 Criar `PartidaStore` com signals para estado, início da apresentação e mensagem, e métodos `iniciarJogo`, `posicionar`, `remover`, `iniciarBatalha`, `atacar`, `atacarComputador` e `reiniciar`; verificar com `partida-store.spec.ts` as transições e mensagens de erro.
+- [x] 1.4 Cobrir no store o início bloqueado por frota incompleta, o ataque fora do turno, o ataque do computador e o reinício com frota vazia; verificar que `npx vitest run src/app/jogo` passa.
 
 ## 2. Apresentação e preparação da frota
 
