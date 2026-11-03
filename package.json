@@ -27,6 +27,7 @@
     "@angular/cli": "~22.2.0",
     "@angular/compiler-cli": "~22.2.0",
     "@eslint/js": "^10.0.1",
+    "@playwright/mcp": "0.0.83",
     "@tailwindcss/postcss": "^4.1.12",
     "angular-eslint": "22.6.0",
     "eslint": "^10.12.0",

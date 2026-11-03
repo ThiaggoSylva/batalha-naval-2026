@@ -10,10 +10,28 @@
           "CONTEXT7_API_KEY": "{file:context7.key}",
         },
       },
+      "sequential-thinking": {
+        "type": "local",
+        "disabled": false,
+        "command": [
+          "npx",
+          "-y",
+          "@modelcontextprotocol/server-sequential-thinking",
+        ],
+        "timeout": {
+          "startup": 60000,
+          "catalog": 60000,
+        },
+      },
       "playwright": {
         "type": "local",
         "disabled": false,
-        "command": ["npx", "-y", "@playwright/mcp@0.0.83", "--headless"],
+        "command": ["node", "./node_modules/@playwright/mcp/cli.js", "--headless"],
+        "cwd": ".",
+        "timeout": {
+          "startup": 60000,
+          "catalog": 60000,
+        },
       },
     },
   },
