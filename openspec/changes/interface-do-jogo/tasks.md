@@ -9,11 +9,11 @@
 
 ## 2. Apresentação e preparação da frota
 
-- [ ] 2.1 Criar o componente de apresentação com nome, objetivo, resumo da frota e chamada para começar, usando tokens e ícones Lucide; verificar que acionar a chamada define `iniciada` e exibe a preparação.
-- [ ] 2.2 Criar o componente `Tabuleiro` reaproveitável com grade 10 × 10, coordenadas, estados visuais, legenda, rótulos acessíveis e emissão de coordenada; verificar com `tabuleiro.spec.ts` a renderização de 100 botões e o bloqueio quando desabilitado.
-- [ ] 2.3 Criar a tela de preparação com lista da frota, seleção de embarcação, alternância de orientação, pré-visualização, remoção, reposicionamento e mensagens de erro; verificar manualmente que A8 rejeita o porta-aviões e B2–B4 aceita o cruzador.
-- [ ] 2.4 Desabilitar o início até a frota completa e exibir quais embarcações faltam; verificar que a batalha só começa com as cinco posicionadas.
-- [ ] 2.5 Integrar `App` para alternar apresentação e preparação por signals e atualizar `app.spec.ts`; verificar que `npm test` passa com o novo fluxo inicial.
+- [x] 2.1 Criar o componente de apresentação com nome, objetivo, resumo da frota e chamada para começar, usando tokens e ícones Lucide; verificar que acionar a chamada define `iniciada` e exibe a preparação.
+- [x] 2.2 Criar o componente `Tabuleiro` reaproveitável com grade 10 × 10, coordenadas, estados visuais, legenda, rótulos acessíveis e emissão de coordenada; verificar com `tabuleiro.spec.ts` a renderização de 100 botões e o bloqueio quando desabilitado.
+- [x] 2.3 Criar a tela de preparação com lista da frota, seleção de embarcação, alternância de orientação, pré-visualização, remoção, reposicionamento e mensagens de erro; verificar manualmente que A8 rejeita o porta-aviões e B2–B4 aceita o cruzador.
+- [x] 2.4 Desabilitar o início até a frota completa e exibir quais embarcações faltam; verificar que a batalha só começa com as cinco posicionadas.
+- [x] 2.5 Integrar `App` para alternar apresentação e preparação por signals e atualizar `app.spec.ts`; verificar que `npm test` passa com o novo fluxo inicial.
 
 ## 3. Batalha por turnos
 

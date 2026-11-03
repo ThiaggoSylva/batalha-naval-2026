@@ -1,10 +1,18 @@
 <div class="flex min-h-screen flex-col">
   <header class="border-b border-celula-borda bg-celula">
-    <div class="mx-auto flex w-full max-w-5xl items-center gap-3 px-4 py-4">
-      <svg lucideShip class="size-7 text-embarcacao" aria-hidden="true"></svg>
-      <h1 class="text-xl font-semibold tracking-tight">{{ nomeJogo() }}</h1>
+    <div class="mx-auto flex w-full max-w-5xl items-center gap-3 px-3 py-3 sm:px-4 sm:py-4">
+      <svg lucideShip class="size-7 shrink-0 text-embarcacao" aria-hidden="true"></svg>
+      <h1 class="text-lg font-semibold tracking-tight sm:text-xl">Batalha Naval</h1>
     </div>
   </header>
 
-  <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-6"></main>
+  <main class="mx-auto w-full max-w-5xl flex-1 px-3 py-4 sm:px-4 sm:py-6">
+    @if (!store.iniciada()) {
+      <app-apresentacao />
+    } @else if (store.fase() === 'preparacao') {
+      <app-preparacao />
+    } @else {
+      <p class="py-16 text-center text-slate-600">Preparando o campo de batalha…</p>
+    }
+  </main>
 </div>

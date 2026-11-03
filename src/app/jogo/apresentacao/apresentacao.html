@@ -1,0 +1,68 @@
+<section class="mx-auto flex max-w-3xl flex-col gap-8 py-4 sm:py-10">
+  <div class="flex flex-col items-center gap-4 text-center">
+    <span
+      class="flex size-16 items-center justify-center rounded-2xl bg-embarcacao text-white shadow-sm"
+    >
+      <svg lucideShip class="size-9" aria-hidden="true"></svg>
+    </span>
+    <div class="space-y-2">
+      <h2 class="text-3xl font-bold tracking-tight text-texto sm:text-4xl">Batalha Naval</h2>
+      <p class="mx-auto max-w-xl text-base text-slate-600">
+        Posicione sua frota, ataque as coordenadas do adversário e afunde todas as embarcações do
+        computador antes que ele destrua as suas.
+      </p>
+    </div>
+  </div>
+
+  <div class="grid gap-4 sm:grid-cols-3">
+    <div class="rounded-xl border border-celula-borda bg-white p-4">
+      <svg lucideAnchor class="mb-2 size-6 text-embarcacao" aria-hidden="true"></svg>
+      <h3 class="font-semibold text-texto">1. Monte a frota</h3>
+      <p class="mt-1 text-sm text-slate-600">
+        Escolha a embarcação, a orientação e a posição no seu tabuleiro.
+      </p>
+    </div>
+    <div class="rounded-xl border border-celula-borda bg-white p-4">
+      <svg lucideCrosshair class="mb-2 size-6 text-acerto" aria-hidden="true"></svg>
+      <h3 class="font-semibold text-texto">2. Ataque</h3>
+      <p class="mt-1 text-sm text-slate-600">
+        Selecione uma coordenada desconhecida do tabuleiro do computador.
+      </p>
+    </div>
+    <div class="rounded-xl border border-celula-borda bg-white p-4">
+      <svg lucideSwords class="mb-2 size-6 text-embarcacao" aria-hidden="true"></svg>
+      <h3 class="font-semibold text-texto">3. Vença</h3>
+      <p class="mt-1 text-sm text-slate-600">
+        Alterne turnos com o computador até que uma das frotas seja destruída.
+      </p>
+    </div>
+  </div>
+
+  <div class="rounded-xl border border-celula-borda bg-white p-4 sm:p-6">
+    <div class="mb-3 flex items-center gap-2">
+      <svg lucideWaves class="size-5 text-agua" aria-hidden="true"></svg>
+      <h3 class="font-semibold text-texto">Sua frota</h3>
+    </div>
+    <ul class="grid gap-2 sm:grid-cols-2">
+      @for (embarcacao of frota().embarcacoes; track embarcacao.tipo) {
+        <li
+          class="flex items-center justify-between gap-3 rounded-lg border border-celula-borda bg-celula px-3 py-2"
+        >
+          <span class="text-sm font-medium text-texto">{{ nomeEmbarcacao(embarcacao.tipo) }}</span>
+          <span class="text-xs text-slate-600">{{ embarcacao.tamanho }} posições</span>
+        </li>
+      }
+    </ul>
+  </div>
+
+  <div class="flex justify-center">
+    <button
+      type="button"
+      class="inline-flex items-center gap-2 rounded-lg bg-embarcacao px-6 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+      (click)="comecar()"
+    >
+      <svg lucidePlay class="size-5" aria-hidden="true"></svg>
+      Começar a partida
+    </button>
+  </div>
+</section>

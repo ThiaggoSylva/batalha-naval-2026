@@ -81,7 +81,7 @@ export class PartidaStore {
     }
 
     this._estado.set(resultado.valor);
-    this.informar(`${nomeEmbarcacao(tipo)} posicionada.`);
+    this.informar(`Embarcação posicionada: ${nomeEmbarcacao(tipo)}.`);
     return true;
   }
 
@@ -93,7 +93,7 @@ export class PartidaStore {
     }
 
     this._estado.set(resultado.valor);
-    this.informar(`${nomeEmbarcacao(tipo)} removida.`);
+    this.informar(`Embarcação removida: ${nomeEmbarcacao(tipo)}.`);
     return true;
   }
 

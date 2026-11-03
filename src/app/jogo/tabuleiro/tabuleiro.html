@@ -1,0 +1,44 @@
+<div class="grid w-full grid-cols-11 gap-0.5 sm:gap-1" role="group" [attr.aria-label]="rotulo()">
+  <span aria-hidden="true"></span>
+  @for (coluna of colunas; track coluna) {
+    <span
+      class="flex items-center justify-center text-[9px] font-semibold text-slate-500 sm:text-xs"
+      aria-hidden="true"
+      >{{ coluna }}</span
+    >
+  }
+
+  @for (linha of linhas(); track linha.letra) {
+    <span
+      class="flex items-center justify-center text-[9px] font-semibold text-slate-500 sm:text-xs"
+      aria-hidden="true"
+      >{{ linha.letra }}</span
+    >
+
+    @for (celula of linha.celulas; track celula.indice) {
+      <button
+        type="button"
+        [class]="classesCelula(celula)"
+        [attr.aria-label]="rotuloCelula(celula)"
+        [disabled]="desabilitado()"
+        (click)="aoSelecionar(celula.indice)"
+        (mouseenter)="aoEntrar(celula.indice)"
+        (mouseleave)="aoSair()"
+        (focus)="aoEntrar(celula.indice)"
+        (blur)="aoSair()"
+      >
+        @switch (celula.estado) {
+          @case ('agua') {
+            <svg lucideDroplets class="size-3 sm:size-4" aria-hidden="true"></svg>
+          }
+          @case ('acerto') {
+            <svg lucideFlame class="size-3 sm:size-4" aria-hidden="true"></svg>
+          }
+          @case ('afundado') {
+            <svg lucideX class="size-3 sm:size-4" aria-hidden="true"></svg>
+          }
+        }
+      </button>
+    }
+  }
+</div>
