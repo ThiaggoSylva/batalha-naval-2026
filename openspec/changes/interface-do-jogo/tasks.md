@@ -17,10 +17,10 @@
 
 ## 3. Batalha por turnos
 
-- [ ] 3.1 Criar a tela de batalha com os dois tabuleiros, indicador de turno e legenda, empilhados no mobile e lado a lado no desktop; verificar que a frota do computador não aparece antes de ser atingida.
-- [ ] 3.2 Implementar o ataque do jogador por clique/teclado, ignorando coordenadas repetidas e turnos inválidos, com atualização imediata do tabuleiro; verificar com testes de componente ou do store que o resultado aparece na célula.
-- [ ] 3.3 Implementar o ataque automático do computador com atraso curto, bloqueio do tabuleiro durante o processamento e cancelamento do timer ao sair da tela; verificar que o turno volta ao jogador após o ataque.
-- [ ] 3.4 Exibir o histórico separado dos ataques do jogador e do computador, com coordenada, resultado e tipo de embarcação quando houver; verificar que os resultados não dependem apenas de cor.
+- [x] 3.1 Criar a tela de batalha com os dois tabuleiros, indicador de turno e legenda, empilhados no mobile e lado a lado no desktop; verificar que a frota do computador não aparece antes de ser atingida.
+- [x] 3.2 Implementar o ataque do jogador por clique/teclado, ignorando coordenadas repetidas e turnos inválidos, com atualização imediata do tabuleiro; verificar com testes de componente ou do store que o resultado aparece na célula.
+- [x] 3.3 Implementar o ataque automático do computador com atraso curto, bloqueio do tabuleiro durante o processamento e cancelamento do timer ao sair da tela; verificar que o turno volta ao jogador após o ataque.
+- [x] 3.4 Exibir o histórico separado dos ataques do jogador e do computador, com coordenada, resultado e tipo de embarcação quando houver; verificar que os resultados não dependem apenas de cor.
 
 ## 4. Encerramento e experiência de uso
 

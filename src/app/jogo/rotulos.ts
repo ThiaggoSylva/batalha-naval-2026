@@ -60,3 +60,17 @@ export function descreverAtaque(
     ? `Acerto em ${coordenada}: ${nomeEmbarcacao(tipoEmbarcacao)}.`
     : `Acerto em ${coordenada}.`;
 }
+
+export function resumirAtaque(resultado: ResultadoAtaque, tipoEmbarcacao?: TipoEmbarcacao): string {
+  if (resultado === 'agua') {
+    return DESCRICOES_RESULTADO.agua;
+  }
+
+  if (resultado === 'embarcacao-destruida') {
+    return tipoEmbarcacao
+      ? `Destruída: ${nomeEmbarcacao(tipoEmbarcacao)}`
+      : DESCRICOES_RESULTADO['embarcacao-destruida'];
+  }
+
+  return tipoEmbarcacao ? `Acerto: ${nomeEmbarcacao(tipoEmbarcacao)}` : DESCRICOES_RESULTADO.acerto;
+}

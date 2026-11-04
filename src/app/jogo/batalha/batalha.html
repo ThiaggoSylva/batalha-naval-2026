@@ -1,0 +1,184 @@
+<section class="flex flex-col gap-5">
+  <header class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+    <div class="flex flex-col gap-1">
+      <h2 class="text-2xl font-bold tracking-tight text-texto sm:text-3xl">Batalha</h2>
+      <p class="text-sm text-slate-600">
+        Escolha uma coordenada no tabuleiro do computador. A frota adversária só aparece quando é
+        atingida.
+      </p>
+    </div>
+
+    <div
+      role="status"
+      aria-live="polite"
+      class="inline-flex w-fit items-center gap-2 rounded-full border px-3 py-1.5 text-sm font-semibold"
+      [class]="
+        fase() === 'encerrada'
+          ? 'border-slate-300 bg-slate-100 text-slate-700'
+          : turno() === 'jogador' && !processando()
+            ? 'border-emerald-300 bg-emerald-50 text-emerald-800'
+            : 'border-amber-300 bg-amber-50 text-amber-800'
+      "
+    >
+      <svg lucideCrosshair class="size-4" aria-hidden="true"></svg>
+      {{ textoTurno() }}
+    </div>
+  </header>
+
+  @if (mensagem(); as texto) {
+    <p
+      role="alert"
+      class="rounded-lg border px-3 py-2 text-sm font-medium"
+      [class]="
+        mensagemEhErro()
+          ? 'border-acerto/40 bg-red-50 text-red-800'
+          : 'border-agua/60 bg-sky-50 text-sky-900'
+      "
+    >
+      {{ texto }}
+    </p>
+  }
+
+  <div class="grid gap-5 lg:grid-cols-2">
+    <div class="rounded-xl border border-celula-borda bg-white p-3 sm:p-4">
+      <div class="mb-3 flex items-center gap-2">
+        <svg lucideShip class="size-5 shrink-0 text-embarcacao" aria-hidden="true"></svg>
+        <div>
+          <h3 class="font-semibold text-texto">Seu tabuleiro</h3>
+          <p class="text-xs text-slate-500">Suas embarcações e os ataques recebidos.</p>
+        </div>
+      </div>
+
+      <app-tabuleiro [celulas]="celulasJogador()" rotulo="Seu tabuleiro" [desabilitado]="true" />
+    </div>
+
+    <div class="rounded-xl border border-celula-borda bg-white p-3 sm:p-4">
+      <div class="mb-3 flex items-center gap-2">
+        <svg lucideBot class="size-5 shrink-0 text-acerto" aria-hidden="true"></svg>
+        <div>
+          <h3 class="font-semibold text-texto">Tabuleiro do computador</h3>
+          <p class="text-xs text-slate-500">As posições não atacadas permanecem ocultas.</p>
+        </div>
+      </div>
+
+      <app-tabuleiro
+        [celulas]="celulasComputador()"
+        rotulo="Tabuleiro do computador"
+        [desabilitado]="computadorDesabilitado()"
+        (casaSelecionada)="aoAtacar($event)"
+      />
+
+      <p class="mt-3 text-xs text-slate-600" aria-live="polite">
+        @if (processando()) {
+          O computador está escolhendo uma coordenada…
+        } @else if (turno() === 'jogador') {
+          Toque em uma posição ainda não atacada.
+        } @else {
+          Aguarde o ataque do computador.
+        }
+      </p>
+    </div>
+  </div>
+
+  <div class="rounded-xl border border-celula-borda bg-white p-3 sm:p-4">
+    <div class="mb-3 flex items-center gap-2">
+      <svg lucideWaves class="size-5 shrink-0 text-agua" aria-hidden="true"></svg>
+      <h3 class="font-semibold text-texto">Legenda</h3>
+    </div>
+    <ul class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-slate-700 sm:grid-cols-4">
+      <li class="flex items-center gap-2">
+        <span
+          class="flex size-6 items-center justify-center rounded-sm bg-embarcacao text-white"
+          aria-hidden="true"
+        >
+          <svg lucideShip class="size-3.5"></svg>
+        </span>
+        Embarcação
+      </li>
+      <li class="flex items-center gap-2">
+        <span
+          class="flex size-6 items-center justify-center rounded-sm bg-agua/40 text-sky-900"
+          aria-hidden="true"
+        >
+          <svg lucideDroplets class="size-3.5"></svg>
+        </span>
+        Água
+      </li>
+      <li class="flex items-center gap-2">
+        <span
+          class="flex size-6 items-center justify-center rounded-sm bg-acerto text-white"
+          aria-hidden="true"
+        >
+          <svg lucideFlame class="size-3.5"></svg>
+        </span>
+        Acerto
+      </li>
+      <li class="flex items-center gap-2">
+        <span
+          class="flex size-6 items-center justify-center rounded-sm bg-afundado text-white"
+          aria-hidden="true"
+        >
+          <svg lucideX class="size-3.5"></svg>
+        </span>
+        Embarcação destruída
+      </li>
+    </ul>
+  </div>
+
+  <div class="grid gap-5 lg:grid-cols-2">
+    <section class="rounded-xl border border-celula-borda bg-white p-3 sm:p-4">
+      <div class="mb-3 flex items-center gap-2">
+        <svg lucideUser class="size-5 shrink-0 text-embarcacao" aria-hidden="true"></svg>
+        <h3 class="font-semibold text-texto">Seus ataques</h3>
+        <span class="ml-auto rounded-full bg-celula px-2 py-0.5 text-xs font-medium text-slate-600">
+          {{ historicoJogador().length }}
+        </span>
+      </div>
+
+      @if (historicoJogador().length === 0) {
+        <p class="text-sm text-slate-500">Nenhum ataque realizado ainda.</p>
+      } @else {
+        <ol class="flex max-h-64 flex-col gap-1 overflow-y-auto">
+          @for (ataque of historicoJogador(); track ataque.indice) {
+            <li
+              class="flex items-center justify-between gap-2 rounded-md bg-celula px-2 py-1 text-sm"
+            >
+              <span class="font-mono font-semibold text-texto">{{ ataque.coordenada }}</span>
+              <span class="text-right text-slate-600">{{ resumo(ataque) }}</span>
+            </li>
+          }
+        </ol>
+      }
+    </section>
+
+    <section class="rounded-xl border border-celula-borda bg-white p-3 sm:p-4">
+      <div class="mb-3 flex items-center gap-2">
+        <svg lucideBot class="size-5 shrink-0 text-acerto" aria-hidden="true"></svg>
+        <h3 class="font-semibold text-texto">Ataques do computador</h3>
+        <span class="ml-auto rounded-full bg-celula px-2 py-0.5 text-xs font-medium text-slate-600">
+          {{ historicoComputador().length }}
+        </span>
+      </div>
+
+      @if (historicoComputador().length === 0) {
+        <p class="text-sm text-slate-500">O computador ainda não atacou.</p>
+      } @else {
+        <ol class="flex max-h-64 flex-col gap-1 overflow-y-auto">
+          @for (ataque of historicoComputador(); track ataque.indice) {
+            <li
+              class="flex items-center justify-between gap-2 rounded-md bg-celula px-2 py-1 text-sm"
+            >
+              <span class="font-mono font-semibold text-texto">{{ ataque.coordenada }}</span>
+              <span class="text-right text-slate-600">{{ resumo(ataque) }}</span>
+            </li>
+          }
+        </ol>
+      }
+    </section>
+  </div>
+
+  <p class="flex items-center gap-2 text-xs text-slate-500">
+    <svg lucideHistory class="size-4" aria-hidden="true"></svg>
+    O histórico é atualizado a cada turno concluído.
+  </p>
+</section>

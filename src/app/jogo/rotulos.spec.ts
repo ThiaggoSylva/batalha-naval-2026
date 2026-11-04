@@ -7,6 +7,7 @@ import {
   mensagemDeErro,
   NOMES_EMBARCACAO,
   nomeEmbarcacao,
+  resumirAtaque,
 } from './rotulos';
 
 const CODIGOS: readonly CodigoErro[] = [
@@ -53,5 +54,12 @@ describe('rotulos', () => {
       'Embarcação destruída em B2: Destroyer.',
     );
     expect(DESCRICOES_RESULTADO['embarcacao-destruida']).toBe('Embarcação destruída');
+  });
+
+  it('resume resultados para o histórico', () => {
+    expect(resumirAtaque('agua')).toBe('Água');
+    expect(resumirAtaque('acerto', 'cruzador')).toBe('Acerto: Cruzador');
+    expect(resumirAtaque('embarcacao-destruida', 'destroyer')).toBe('Destruída: Destroyer');
+    expect(resumirAtaque('acerto')).toBe('Acerto');
   });
 });
