@@ -24,11 +24,11 @@
 
 ## 4. Encerramento e experiência de uso
 
-- [ ] 4.1 Exibir painel de vitória ou derrota mantendo os tabuleiros visíveis e bloqueando novos ataques; verificar que o resultado final aparece ao destruir a última embarcação.
-- [ ] 4.2 Implementar a ação de nova partida, retornando à preparação com frotas, históricos e resultado limpos; verificar que nenhuma embarcação permanece posicionada.
-- [ ] 4.3 Revisar responsividade em 360 px e desktop, sem rolagem horizontal e com células selecionáveis; verificar com o navegador em ambas as larguras.
-- [ ] 4.4 Revisar acessibilidade: foco visível, operação por teclado, `role="status"`/`alert`, `aria-label` das células e contraste; verificar navegando pelo tabuleiro apenas com teclado.
-- [ ] 4.5 Documentar no `README.md` o fluxo de uso e a matriz de cobertura das capabilities; verificar que os comandos documentados continuam válidos.
+- [x] 4.1 Exibir painel de vitória ou derrota mantendo os tabuleiros visíveis e bloqueando novos ataques; verificar que o resultado final aparece ao destruir a última embarcação.
+- [x] 4.2 Implementar a ação de nova partida, retornando à preparação com frotas, históricos e resultado limpos; verificar que nenhuma embarcação permanece posicionada.
+- [x] 4.3 Revisar responsividade em 360 px e desktop, sem rolagem horizontal e com células selecionáveis; verificar com o navegador em ambas as larguras.
+- [x] 4.4 Revisar acessibilidade: foco visível, operação por teclado, `role="status"`/`alert`, `aria-label` das células e contraste; verificar navegando pelo tabuleiro apenas com teclado.
+- [x] 4.5 Documentar no `README.md` o fluxo de uso e a matriz de cobertura das capabilities; verificar que os comandos documentados continuam válidos.
 
 ## 5. Verificação final
 

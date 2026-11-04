@@ -25,6 +25,48 @@
     </div>
   </header>
 
+  @if (fase() === 'encerrada') {
+    <div
+      role="alert"
+      class="flex flex-col gap-3 rounded-xl border-2 p-4 sm:flex-row sm:items-center"
+      [class]="jogadorVenceu() ? 'border-emerald-400 bg-emerald-50' : 'border-red-300 bg-red-50'"
+    >
+      <span
+        class="flex size-12 shrink-0 items-center justify-center rounded-full"
+        [class]="jogadorVenceu() ? 'bg-emerald-600 text-white' : 'bg-red-700 text-white'"
+        aria-hidden="true"
+      >
+        @if (jogadorVenceu()) {
+          <svg lucideTrophy class="size-6"></svg>
+        } @else {
+          <svg lucideFrown class="size-6"></svg>
+        }
+      </span>
+
+      <div class="flex-1">
+        <h3 class="text-lg font-bold text-texto">
+          {{ jogadorVenceu() ? 'Você venceu!' : 'Você perdeu' }}
+        </h3>
+        <p class="text-sm text-slate-700">
+          @if (jogadorVenceu()) {
+            Toda a frota do computador foi destruída. Deseja jogar novamente?
+          } @else {
+            Sua frota foi destruída. Monte uma nova estratégia e tente outra vez.
+          }
+        </p>
+      </div>
+
+      <button
+        type="button"
+        class="inline-flex items-center justify-center gap-2 rounded-lg bg-embarcacao px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+        (click)="novaPartida()"
+      >
+        <svg lucideRotateCcw class="size-4" aria-hidden="true"></svg>
+        Jogar novamente
+      </button>
+    </div>
+  }
+
   @if (mensagem(); as texto) {
     <p
       role="alert"

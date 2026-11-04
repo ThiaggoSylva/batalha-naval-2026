@@ -124,6 +124,28 @@ A experiência deve ser utilizável tanto em computadores quanto em dispositivos
 - Contas de usuário, ranking ou chat.
 - Continuação de partidas após fechar a aplicação.
 
+## Como jogar
+
+1. Na apresentação, confira o objetivo e a composição da frota e acione **Começar a partida**.
+2. Na preparação, selecione uma embarcação, escolha **Horizontal** ou **Vertical** e toque em uma posição do tabuleiro. Posições inválidas são destacadas e explicadas; use o ícone de lixeira para remover e reposicionar.
+3. Com as cinco embarcações posicionadas, acione **Iniciar batalha**.
+4. Na batalha, ataque uma coordenada do tabuleiro do computador. O resultado aparece na célula, na mensagem e no histórico; em seguida o computador ataca automaticamente.
+5. Ao destruir toda a frota adversária (ou perder a sua), o resultado é exibido e **Jogar novamente** reinicia a preparação.
+
+A interface é operável por teclado, os resultados combinam símbolos, texto e cor, e o layout se adapta de 360 px a telas de desktop sem rolagem horizontal.
+
+## Cobertura funcional
+
+As regras e a interface estão descritas nas specs do OpenSpec:
+
+| Capability                | Spec                                             | Escopo                                                                 |
+| ------------------------- | ------------------------------------------------ | ---------------------------------------------------------------------- |
+| `motor-do-jogo`           | `openspec/specs/motor-do-jogo/spec.md`           | Coordenadas, frota, tabuleiro, turnos e condições de vitória.          |
+| `preparacao-da-frota`     | `openspec/specs/preparacao-da-frota/spec.md`     | Montagem da frota, orientação, validação e início condicionado.        |
+| `batalha-por-turnos`      | `openspec/specs/batalha-por-turnos/spec.md`      | Dois tabuleiros, ataques, resultados, turno do computador e histórico. |
+| `encerramento-da-partida` | `openspec/specs/encerramento-da-partida/spec.md` | Vitória, derrota, bloqueio de ataques e nova partida.                  |
+| `experiencia-de-uso`      | `openspec/specs/experiencia-de-uso/spec.md`      | Apresentação, responsividade, acessibilidade e textos em português.    |
+
 ## Desenvolvimento
 
 Requisitos: Node.js 26 ou superior e npm.

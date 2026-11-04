@@ -11,8 +11,11 @@ import {
   LucideCrosshair,
   LucideDroplets,
   LucideFlame,
+  LucideFrown,
   LucideHistory,
+  LucideRotateCcw,
   LucideShip,
+  LucideTrophy,
   LucideUser,
   LucideWaves,
   LucideX,
@@ -32,8 +35,11 @@ const ATRASO_COMPUTADOR = 900;
     LucideCrosshair,
     LucideDroplets,
     LucideFlame,
+    LucideFrown,
     LucideHistory,
+    LucideRotateCcw,
     LucideShip,
+    LucideTrophy,
     LucideUser,
     LucideWaves,
     LucideX,
@@ -49,6 +55,8 @@ export class Batalha {
 
   protected readonly fase = this.store.fase;
   protected readonly turno = this.store.turno;
+  protected readonly vencedor = this.store.vencedor;
+  protected readonly jogadorVenceu = computed(() => this.vencedor() === 'jogador');
   protected readonly mensagem = this.store.mensagem;
   protected readonly mensagemEhErro = this.store.mensagemEhErro;
   protected readonly ataquesJogador = this.store.ataquesJogador;
@@ -104,6 +112,11 @@ export class Batalha {
 
   protected resumo(ataque: Ataque): string {
     return resumirAtaque(ataque.resultado, ataque.tipoEmbarcacao);
+  }
+
+  protected novaPartida(): void {
+    this.cancelarTimer();
+    this.store.reiniciar();
   }
 
   private cancelarTimer(): void {
