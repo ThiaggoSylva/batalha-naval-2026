@@ -12,4 +12,4 @@
 ## 3. Documentação e verificação
 
 - [x] 3.1 Registrar a opção de sair no fluxo de uso do `README.md` e verificar que o texto corresponde ao comportamento implementado.
-- [ ] 3.2 Rodar lint, testes, build e validar o change com `openspec validate opcao-sair-ao-final --strict`.
+- [x] 3.2 Rodar lint, testes, build e validar o change com `openspec validate opcao-sair-ao-final --strict`.
