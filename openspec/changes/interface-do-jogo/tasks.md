@@ -32,9 +32,9 @@
 
 ## 5. Verificação final
 
-- [ ] 5.1 Rodar `npm run lint`, `npm test` e `npm run build` e confirmar os três verdes.
-- [ ] 5.2 Abrir a aplicação, jogar um fluxo completo (preparação, ataques, fim, nova partida) e confirmar console sem erros e textos em português.
-- [ ] 5.3 Rodar `openspec validate interface-do-jogo --strict` e confirmar a change válida antes do arquivamento.
+- [x] 5.1 Rodar `npm run lint`, `npm test` e `npm run build` e confirmar os três verdes.
+- [x] 5.2 Abrir a aplicação, jogar um fluxo completo (preparação, ataques, fim, nova partida) e confirmar console sem erros e textos em português.
+- [x] 5.3 Rodar `openspec validate interface-do-jogo --strict` e confirmar a change válida antes do arquivamento.
 
 ## Workflow follow-up
 
