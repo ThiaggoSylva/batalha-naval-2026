@@ -49,21 +49,34 @@
         </h3>
         <p class="text-sm text-slate-700">
           @if (jogadorVenceu()) {
-            Toda a frota do computador foi destruída. Deseja jogar novamente?
+            Toda a frota do computador foi destruída. Jogue novamente ou saia para voltar à tela
+            inicial.
           } @else {
-            Sua frota foi destruída. Monte uma nova estratégia e tente outra vez.
+            Sua frota foi destruída. Monte uma nova estratégia, jogue novamente ou saia para voltar
+            à tela inicial.
           }
         </p>
       </div>
 
-      <button
-        type="button"
-        class="inline-flex items-center justify-center gap-2 rounded-lg bg-embarcacao px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
-        (click)="novaPartida()"
-      >
-        <svg lucideRotateCcw class="size-4" aria-hidden="true"></svg>
-        Jogar novamente
-      </button>
+      <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+        <button
+          type="button"
+          class="inline-flex items-center justify-center gap-2 rounded-lg bg-embarcacao px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+          (click)="novaPartida()"
+        >
+          <svg lucideRotateCcw class="size-4" aria-hidden="true"></svg>
+          Jogar novamente
+        </button>
+
+        <button
+          type="button"
+          class="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+          (click)="sair()"
+        >
+          <svg lucideLogOut class="size-4" aria-hidden="true"></svg>
+          Sair
+        </button>
+      </div>
     </div>
   }
 

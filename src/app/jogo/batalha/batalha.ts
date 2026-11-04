@@ -13,6 +13,7 @@ import {
   LucideFlame,
   LucideFrown,
   LucideHistory,
+  LucideLogOut,
   LucideRotateCcw,
   LucideShip,
   LucideTrophy,
@@ -37,6 +38,7 @@ const ATRASO_COMPUTADOR = 900;
     LucideFlame,
     LucideFrown,
     LucideHistory,
+    LucideLogOut,
     LucideRotateCcw,
     LucideShip,
     LucideTrophy,
@@ -117,6 +119,11 @@ export class Batalha {
   protected novaPartida(): void {
     this.cancelarTimer();
     this.store.reiniciar();
+  }
+
+  protected sair(): void {
+    this.cancelarTimer();
+    this.store.sair();
   }
 
   private cancelarTimer(): void {

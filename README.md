@@ -130,7 +130,7 @@ A experiência deve ser utilizável tanto em computadores quanto em dispositivos
 2. Na preparação, selecione uma embarcação, escolha **Horizontal** ou **Vertical** e toque em uma posição do tabuleiro. Posições inválidas são destacadas e explicadas; use o ícone de lixeira para remover e reposicionar.
 3. Com as cinco embarcações posicionadas, acione **Iniciar batalha**.
 4. Na batalha, ataque uma coordenada do tabuleiro do computador. O resultado aparece na célula, na mensagem e no histórico; em seguida o computador ataca automaticamente.
-5. Ao destruir toda a frota adversária (ou perder a sua), o resultado é exibido e **Jogar novamente** reinicia a preparação.
+5. Ao destruir toda a frota adversária (ou perder a sua), o resultado é exibido e **Jogar novamente** reinicia a preparação. Se preferir encerrar, **Sair** descarta a partida e volta à apresentação.
 
 A interface é operável por teclado, os resultados combinam símbolos, texto e cor, e o layout se adapta de 360 px a telas de desktop sem rolagem horizontal.
 

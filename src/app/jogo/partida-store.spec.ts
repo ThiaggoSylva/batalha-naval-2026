@@ -259,4 +259,20 @@ describe('PartidaStore', () => {
     expect(store.reiniciar()).toBe(false);
     expect(store.mensagem()).toContain('não está disponível');
   });
+
+  it('sai da partida e descarta tabuleiros, frotas e históricos', () => {
+    const store = new PartidaStore();
+    store.iniciarJogo();
+    iniciarBatalha(store);
+    store.atacar(primeiraAgua(alcance(store)));
+
+    store.sair();
+
+    expect(store.iniciada()).toBe(false);
+    expect(store.fase()).toBe('preparacao');
+    expect(store.frotaJogador().embarcacoes.every((item) => item.posicoes.length === 0)).toBe(true);
+    expect(store.ataquesJogador()).toEqual([]);
+    expect(store.ataquesComputador()).toEqual([]);
+    expect(store.mensagem()).toBeNull();
+  });
 });

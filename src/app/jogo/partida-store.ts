@@ -161,6 +161,12 @@ export class PartidaStore {
     return true;
   }
 
+  sair(): void {
+    this._estado.set(criarPartida());
+    this._iniciada.set(false);
+    this.limparMensagem();
+  }
+
   limparMensagem(): void {
     this._mensagem.set(null);
     this._mensagemEhErro.set(false);

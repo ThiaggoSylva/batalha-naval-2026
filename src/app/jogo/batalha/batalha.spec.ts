@@ -143,4 +143,39 @@ describe('Batalha', () => {
     ).toBe(true);
     expect(store.ataquesJogador()).toEqual([]);
   });
+
+  it('oferece sair apenas ao final e descarta a partida', () => {
+    const store = TestBed.inject(PartidaStore);
+    prepararBatalha(store);
+
+    const fixture = TestBed.createComponent(Batalha);
+    fixture.detectChanges();
+
+    const elemento = fixture.nativeElement as HTMLElement;
+
+    expect(
+      Array.from(elemento.querySelectorAll('button')).some(
+        (botao) => botao.textContent?.trim() === 'Sair',
+      ),
+    ).toBe(false);
+
+    jogarAteOVencedor(store);
+    fixture.detectChanges();
+
+    const sair = Array.from(elemento.querySelectorAll('button')).find(
+      (botao) => botao.textContent?.trim() === 'Sair',
+    );
+
+    expect(sair).toBeTruthy();
+    sair?.click();
+    fixture.detectChanges();
+
+    expect(store.iniciada()).toBe(false);
+    expect(store.fase()).toBe('preparacao');
+    expect(
+      store.frotaJogador().embarcacoes.every((embarcacao) => embarcacao.posicoes.length === 0),
+    ).toBe(true);
+    expect(store.ataquesJogador()).toEqual([]);
+    expect(store.vencedor()).toBeNull();
+  });
 });
