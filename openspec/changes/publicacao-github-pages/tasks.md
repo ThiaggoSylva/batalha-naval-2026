@@ -12,9 +12,9 @@
 ## 3. Verificação e publicação
 
 - [x] 3.1 Executar o build local com `--base-href=/batalha-naval-2026/` e confirmar o caminho dos assets no `index.html`.
-- [ ] 3.2 Habilitar o GitHub Pages com origem GitHub Actions, enviar o workflow e confirmar execução concluída com sucesso.
-- [ ] 3.3 Abrir a URL publicada e verificar que a aplicação carrega e inicia uma partida.
-- [ ] 3.4 Validar o change com `openspec validate publicacao-github-pages --strict`.
+- [x] 3.2 Habilitar o GitHub Pages com origem GitHub Actions, enviar o workflow e confirmar execução concluída com sucesso.
+- [x] 3.3 Abrir a URL publicada e verificar que a aplicação carrega e inicia uma partida.
+- [x] 3.4 Validar o change com `openspec validate publicacao-github-pages --strict`.
 
 ## Workflow follow-up
 
