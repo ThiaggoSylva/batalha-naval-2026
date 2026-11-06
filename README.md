@@ -146,9 +146,23 @@ As regras e a interface estão descritas nas specs do OpenSpec:
 | `encerramento-da-partida` | `openspec/specs/encerramento-da-partida/spec.md` | Vitória, derrota, bloqueio de ataques e nova partida.                  |
 | `experiencia-de-uso`      | `openspec/specs/experiencia-de-uso/spec.md`      | Apresentação, responsividade, acessibilidade e textos em português.    |
 
+## Publicação
+
+A aplicação é publicada no GitHub Pages em
+[thiaggosylva.github.io/batalha-naval-2026](https://thiaggosylva.github.io/batalha-naval-2026/).
+
+Cada push na branch `main` dispara o workflow **Publicar no GitHub Pages**, que executa lint,
+testes e build de produção antes de publicar. O deploy também pode ser iniciado manualmente em
+**Actions → Publicar no GitHub Pages → Run workflow**.
+
+O build usa `npm run build:pages` (`--base-href=/batalha-naval-2026/`), publica
+`dist/batalha-naval-2026/browser` e inclui um `404.html` para carregar a aplicação em acessos
+diretos. Se o repositório for renomeado, ajuste esse caminho no script `build:pages`, no workflow e
+neste README.
+
 ## Desenvolvimento
 
-Requisitos: Node.js 26 ou superior e npm.
+Requisitos: Node.js 24.15 ou superior e npm.
 
 ```bash
 npm install     # instala as dependências
